@@ -1,3 +1,6 @@
 package command
 
-// Command will be implemented in the next commits.
+// Command defines the interface for executing a command.
+type Command interface {
+	Execute() string
+}

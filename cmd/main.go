@@ -1,9 +1,13 @@
 package main
 
 import (
+	"command-pattern-go/pkg/command"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Command Pattern Example")
+	receiver := &command.Receiver{}
+
+	fmt.Println(receiver.ActionOne())
+	fmt.Println(receiver.ActionTwo())
 }
