@@ -8,6 +8,12 @@ import (
 func main() {
 	receiver := &command.Receiver{}
 
-	fmt.Println(receiver.ActionOne())
-	fmt.Println(receiver.ActionTwo())
+	commandOne := command.NewCommandOne(receiver)
+	commandTwo := command.NewCommandTwo(receiver)
+
+	fmt.Println("Executing CommandOne:")
+	fmt.Println(commandOne.Execute())
+
+	fmt.Println("Executing CommandTwo:")
+	fmt.Println(commandTwo.Execute())
 }
