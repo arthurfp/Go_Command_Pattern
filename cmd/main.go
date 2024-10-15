@@ -11,9 +11,12 @@ func main() {
 	commandOne := command.NewCommandOne(receiver)
 	commandTwo := command.NewCommandTwo(receiver)
 
-	fmt.Println("Executing CommandOne:")
-	fmt.Println(commandOne.Execute())
+	invoker := &command.Invoker{}
+	invoker.AddCommand(commandOne)
+	invoker.AddCommand(commandTwo)
 
-	fmt.Println("Executing CommandTwo:")
-	fmt.Println(commandTwo.Execute())
+	fmt.Println("Executing all commands via Invoker:")
+	for _, result := range invoker.ExecuteAll() {
+		fmt.Println(result)
+	}
 }
